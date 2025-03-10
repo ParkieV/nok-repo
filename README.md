@@ -1,0 +1,1 @@
+<a href="https://codeclimate.com/github/ParkieV/nok-repo/maintainability"><img src="https://api.codeclimate.com/v1/badges/a77c835e529a6d0fe470/maintainability" /></a>
