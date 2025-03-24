@@ -1,5 +1,7 @@
 from random import randint
 
+from core import choose_loop
+
 
 def generate_sequence() -> (int, str):
     num_seq = []
@@ -17,7 +19,7 @@ def generate_sequence() -> (int, str):
     return hidden_num, " ".join(num_seq)
 
 
-def cli():
+def game_loop() -> None:
     print("What number is missing in the progression?")
     hidden_num, question_string = generate_sequence()
     print(f"Question: {question_string}")
@@ -34,34 +36,5 @@ def cli():
         print("Let's try again, Sam!")
 
 
-def loop():
-    print("Welcome to the Brain Games!")
-    user_name = input("May I have your name? ")
-    print(f"Hello, {user_name}!")
-    while True:
-        cli()
-        user_choose = input("Would you like to play again? ")
-        match user_choose:
-            case _ if user_choose.lower() == "y":
-                pass
-            case _ if user_choose.lower() == "yes":
-                pass
-            case _ if user_choose.lower() == "n":
-                print("Thanks for playing!")
-                break
-            case "N":
-                print("Thanks for playing!")
-                break
-            case _ if user_choose.lower() == "no":
-                print("Thanks for playing!")
-                break
-            case _:
-                raise AssertionError("Invalid input!")
-
-
-def main() -> None:
-    loop()
-
-
 if __name__ == "__main__":
-    main()
+    choose_loop(input_output_interface=game_loop)

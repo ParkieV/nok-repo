@@ -1,6 +1,8 @@
 from functools import reduce
 from random import randint
 
+from core import choose_loop
+
 
 def nod(a, b):
     """Return greatest common divisor using Euclid's Algorithm."""
@@ -19,7 +21,7 @@ def nok_all(*args):
     return reduce(nok_both, args)
 
 
-def cli():
+def game_loop():
     print("Find the smallest common multiple of given numbers.")
     num_tuple = tuple(randint(1, 30) for _ in range(3))
     print(f"Question: {' '.join((str(x) for x in num_tuple))}")
@@ -36,36 +38,5 @@ def cli():
         print("Let's try again, Sam!")
 
 
-def loop():
-    print("Welcome to the Brain Games!")
-    user_name = input("May I have your name? ")
-    print(f"Hello, {user_name}!")
-    while True:
-        cli()
-        user_choose = input("Would you like to play again? ")
-        match user_choose:
-            case "y":
-                pass
-            case "Y":
-                pass
-            case "Yes":
-                pass
-            case "n":
-                print("Thanks for playing!")
-                break
-            case "N":
-                print("Thanks for playing!")
-                break
-            case "No":
-                print("Thanks for playing!")
-                break
-            case _:
-                raise AssertionError("Invalid input!")
-
-
-def main() -> None:
-    loop()
-
-
 if __name__ == "__main__":
-    main()
+    choose_loop(input_output_interface=game_loop)
